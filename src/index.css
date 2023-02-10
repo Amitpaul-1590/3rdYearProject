@@ -622,10 +622,9 @@ code {
   display: flex;
   background: white;
   width: 100%;
-  margin-top: 50px;
+  height: 100%;
   align-items: center;
   justify-content: center;
-  margin-left: 40px;
 }
 .body{
   position: static;

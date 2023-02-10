@@ -40,9 +40,13 @@ export const IndividualProduct = ({individualProduct}) => {
               };         
         
     }
+
+    // useEffect(()=>{
+    //   getProducts();
+    // },[])
       const deleteUser = async (id) => {
-    const userDoc = doc(db, "Products", id);
-    await deleteDoc(userDoc);
+      const userDoc = doc(db, "Products", id);
+      await deleteDoc(userDoc);
   };
 
     return (

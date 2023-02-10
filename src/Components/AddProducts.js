@@ -4,9 +4,15 @@ import React,{useState, useEffect} from 'react'
 import { Navbar } from './Navbar'
 import { Products } from './Products'
 import { IndividualFilteredProduct } from './IndividualFilteredProduct'
-//import { IndividualFilteredProduct } from './AdminCards/AdminIndividualFilteredProduct'
-//AdminIndividualFilteredProduct
+import {db} from '../Config/Config';
+// import { collection } from "@firebase/firestore";
+//  import { useCollectionData } from "react-firebase-hooks/firestore";
+//  import {useCollectionData} from 'react-firebase-hooks/firestore';
 export const AddProducts = () => {
+
+    // const query = collection(db, "oses");
+    //  const [docs, loading, error] = useCollectionData(query);
+    // console.log(db);
 
     const [title, setTitle]=useState('');
     const [description, setDescription]=useState('');
@@ -43,7 +49,7 @@ export const AddProducts = () => {
     const handleAddProducts=(e)=>{
         e.preventDefault();
         // console.log(title, description, price);
-        console.log(image);
+        // console.log(image);
         const uploadTask=storage.ref(`product-images/${image.name}`).put(image);
         uploadTask.on('state_changed',snapshot=>{
             const progress = (snapshot.bytesTransferred/snapshot.totalBytes)*100
@@ -157,8 +163,6 @@ export const AddProducts = () => {
         setFilteredProducts([]);
     }
 
-
-
     return (
         <div className='container2'>
             <Navbar />
@@ -181,7 +185,7 @@ export const AddProducts = () => {
                 <br></br>
                 
                 <label>Spot Category</label>
-                <select id='PlaceCategory' className='form-control' required
+                <select className='form-control' required
                 value={category} onChange={(e)=>setCategory(e.target.value)}>                                    
                     <option value="">Select spot Category</option>                   
                     <option>Lake</option>
@@ -205,7 +209,7 @@ export const AddProducts = () => {
                 onChange={(e)=>setWeb_link(e.target.value)} value={web_link}></input>
                 <br></br>
 
-                <label>Sheet Link</label>
+                <label>Sheet link json formate</label>
                 <input type="text" className='form-control' required
                 onChange={(e)=>setSheet_link(e.target.value)} value={sheet_link}></input>
                 <br></br>
@@ -215,7 +219,7 @@ export const AddProducts = () => {
                 onChange={(e)=>setMap_link(e.target.value)} value={map_link}></input>
                 <br></br>
 
-                {/* <label>information1</label>
+                <label>Sheet Link</label>
                 <input type="text" className='form-control' required
                 onChange={(e)=>setInformation1(e.target.value)} value={information1}></input>
                 <br></br>
@@ -223,7 +227,7 @@ export const AddProducts = () => {
                 <label>information2</label>
                 <input type="text" className='form-control' required
                 onChange={(e)=>setInformation2(e.target.value)} value={information2}></input>
-                <br></br> */}
+                <br></br>
                 
                 {imageError&&<>
                     <br></br>
@@ -242,13 +246,13 @@ export const AddProducts = () => {
             {uploadError&&<>
                     <br></br>
                     <div className='error-msg'>{uploadError}</div>                    
-                </>}
+            </>}
 
 
             {/* All Products */}
             <br></br>
             <div className='container-fluid filter-products-main-box'>
-                <div id="filterbox"className='filter-box'>
+                <div className='filter-box'>
                     <h6>Filter by category</h6>
                         {spans.map((individualSpan,index)=>(
                             <span  key={index} id={individualSpan.id}

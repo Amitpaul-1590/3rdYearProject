@@ -55,17 +55,17 @@ export const Login = () => {
     }
 
     return (
-        <div className='container1'>
+        <div className='container1' >
             <br></br>
             <br></br>
-            <div className="body">
+            <div style={{backgroundColor: "red", padding: "10px"}}>
             <h1 id="login">Login</h1>
             {successMsg&&<>  
                 <div className='success-msg'>{successMsg}</div>
                 <br></br>
             </>}
             
-             <form id="form1"className='form-group' autoComplete="off"
+             <form id="form1" style={{backgroundColor: "yellow"}} className='form-group' autoComplete="off"
             onSubmit={handleLogin}>  
                 <div className='email'>
                     <label id="em">Email</label>
@@ -85,7 +85,7 @@ export const Login = () => {
                
                 
                 <br></br>
-                <div id="loginbtn1" className='btn-box'>
+                <div id="loginbtn1"  className='btn-box'>
                     <button id= "loginbtn" type="submit" className='btn btn-success btn-md'>Log In</button>
                     <br></br>    
                 </div>

@@ -16,8 +16,8 @@ const Information = () => {
   const getData = async () => {
     try {
       const res = await fetch(
-        // location.state.sheet_link
-        "https://sheet.best/api/sheets/12327e80-9493-4b36-8e59-ae4e4bc44c12"
+        //location.state.sheet_link
+        //  "https://sheet.best/api/sheets/12327e80-9493-4b36-8e59-ae4e4bc44c12"
       );  
       const data = await res.json();
       console.log(data);
@@ -40,6 +40,10 @@ const Information = () => {
      <input type="number" id="day" className='form-control' required
      onChange={(e)=>setDay(e.target.value)} value={day}></input>
      <br></br>
+     <br></br>
+     <br></br>
+     <h2 style={{color:"white",fontWeight:"bold",textShadow:"inherit",textAlign:"center",border:"2px solid red",borderRadius:"10px",backgroundColor:"ButtonText"}}>Transport Information </h2>
+
      <br></br>
      <br></br>
       {data?.map((item, i) => (
@@ -67,21 +71,22 @@ const Information = () => {
                   <strong className="display-6">{item.Heading} </strong> ---{" "}
                 </span>
               </div><br></br>
-              <p>Bus price   : {item.Bus}   total: {item.Bus*person*2}  </p>    
-              <p>Train price :{item.Train}  total: {item.Train*person*2}</p>
+              <p>Bus price   : {item.Bus}  <br></br> total: {item.Bus*person*2}  </p>    
+              <p>Train price :{item.Train} <br></br> total: {item.Train*person*2}</p>
             </div>
           </div>
         </div>
       ))}
 
     {/* hotel */}
-
-    <h1 style={{textAlign:"center", color:"black"}}><strong>hotels information</strong></h1>
+    <hr></hr>
+    <h1 style={{color:"white",fontWeight:"bold",textShadow:"inherit",textAlign:"center",border:"2px solid red",borderRadius:"10px",backgroundColor:"ButtonText"}}>hotels information</h1>
+    <hr></hr>
     <br></br>
       {data?.map((item, i) => (
-        <div key={i}>
+        <div style={{backgroundColor:"skyblue",borderRadius:"10px", paddingTop:"10px",paddingLeft:"20px"}} key={i}>
           <h2 id={`heading${i}`}>            
-              <a style={{textDecoration: "none", backgroundColor: "red"}} href={item.link}>{item.hotel}  </a>
+              <a style={{textDecoration: "none"}} href={item.link}>{item.hotel}  </a>
           </h2>
           
             <div >
@@ -90,8 +95,8 @@ const Information = () => {
                   <strong className="display-6">{item.heading2} </strong> 
                 </span>
               </div><br></br>
-              <p>rent price maximum : {item.maximum_rent}   total: {item.maximum_rent*person*day}</p>    
-              <p>rent price minimum : {item.minimum_rent}   total: {item.minimum_rent*person*day}</p>
+              <p>rent price maximum : {item.maximum_rent} <br></br>  total: {item.maximum_rent*person*day}</p>    
+              <p>rent price minimum : {item.minimum_rent}  <br></br> total: {item.minimum_rent*person*day}</p>
               
             </div>
           </div>
